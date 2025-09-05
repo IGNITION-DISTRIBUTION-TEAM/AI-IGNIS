@@ -1,4 +1,4 @@
-mport os
+import os
 import streamlit as st
 from snowflake.snowpark import Session
 
