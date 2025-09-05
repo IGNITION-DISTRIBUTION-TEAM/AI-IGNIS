@@ -26,9 +26,10 @@ session = create_snowflake_session()
 AGENT_NAME = os.getenv("SNOWFLAKE_AGENT_NAME", "AGENT_CHATBOT")
 
 def ask_agent(prompt):
-    query = f"""
-    CALL CX_SALES.COMPLETE_WITH_PROMPT(PROMPT => %s)
+    query = """
+    CALL CX_SALES.COMPLETE_WITH_PROMPT(PROMPT => ?)
     """
+    # Pass parameters as a list
     result = session.sql(query, [prompt]).collect()
     return result[0][0]  # Adjust if agent returns JSON
 
