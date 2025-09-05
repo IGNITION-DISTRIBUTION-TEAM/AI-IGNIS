@@ -9,7 +9,7 @@ def create_snowflake_session():
     connection_parameters = {
         "account": os.getenv("SNOWFLAKE_ACCOUNT"),
         "user": os.getenv("SNOWFLAKE_USER"),
-        "private_key_path": os.getenv("SNOWFLAKE_PRIVATE_KEY_PATH"),  # or use PASSWORD
+        "password": os.getenv("SNOWFLAKE_PASSWORD"),  # or use PASSWORD
         "role": os.getenv("SNOWFLAKE_ROLE"),
         "warehouse": os.getenv("SNOWFLAKE_WAREHOUSE"),
         "database": os.getenv("SNOWFLAKE_DATABASE"),
