@@ -2,5 +2,4 @@ streamlit
 snowflake-snowpark-python
 pandas
 sseclient
-models
 pip
