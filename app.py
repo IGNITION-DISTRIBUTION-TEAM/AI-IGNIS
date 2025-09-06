@@ -7,7 +7,7 @@ import pandas as pd
 import requests
 import sseclient
 import streamlit as st
-from models import ChartEventData
+import models.ChartEventData
 from models import (
     DataAgentRunRequest,
     ErrorEventData,
