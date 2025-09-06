@@ -9,7 +9,7 @@ import sseclient
 import streamlit as st
 
 from models import (
-    chart_event_data.ChartEventData,
+    ChartEventData,
     DataAgentRunRequest,
     ErrorEventData,
     Message,
