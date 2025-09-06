@@ -1,6 +1,7 @@
-streamlit
-snowflake-snowpark-python
+streamlit==1.30.0
+snowflake-snowpark-python==2.1.0
+snowflake-cortex==0.7.0  # make sure this exists in PyPI
 pandas
+numpy
+requests
 sseclient
-pip
-snowflake-cortex
