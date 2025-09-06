@@ -1,6 +1,5 @@
 streamlit==1.49.1
 snowflake-snowpark-python==1.38.0
-snowflake-cortex==0.7.0
 pandas
 numpy
 requests
