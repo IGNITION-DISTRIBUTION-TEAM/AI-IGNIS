@@ -59,7 +59,7 @@ def stream_events(response: requests.Response):
     spinner = st.spinner("Waiting for response...")
     spinner.__enter__()
 
-    events = sseclient.SSEClient(response.iter_lines()).events()
+    events = sseclient.SSEClient(response).events()
     for event in events:
         match event.event:
             case "response.status":
