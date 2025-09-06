@@ -38,7 +38,7 @@ def agent_run() -> requests.Response:
         url=f"https://{HOST}/api/v2/databases/{DATABASE}/schemas/{SCHEMA}/agents/{AGENT}:run",
         data=request_body.to_json(),
         headers={
-            "Authorization": f'Bearer {PAT}"',
+            "Authorization": f"Bearer {PAT}",
             "Content-Type": "application/json",
         },
         stream=True,
