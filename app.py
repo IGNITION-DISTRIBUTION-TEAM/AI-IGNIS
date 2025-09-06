@@ -7,21 +7,19 @@ import pandas as pd
 import requests
 import sseclient
 import streamlit as st
-from models import (
-    ChartEventData,
-    DataAgentRunRequest,
-    ErrorEventData,
-    Message,
-    MessageContentItem,
-    StatusEventData,
-    TableEventData,
-    TextContentItem,
-    TextDeltaEventData,
-    ThinkingDeltaEventData,
-    ThinkingEventData,
-    ToolResultEventData,
-    ToolUseEventData,
-)
+from .chart_event_data import ChartEventData
+from .data_agent_run_request import DataAgentRunRequest
+from .error_event_data import ErrorEventData
+from .message import Message
+from .message_content_item import MessageContentItem
+from .status_event_data import StatusEventData
+from .table_event_data import TableEventData
+from .text_content_item import TextContentItem
+from .text_delta_event_data import TextDeltaEventData
+from .thinking_delta_event_data import ThinkingDeltaEventData
+from .thinking_event_data import ThinkingEventData
+from .tool_result_event_data import ToolResultEventData
+from .tool_use_event_data import ToolUseEventData
 
 PAT = os.getenv("CORTEX_AGENT_DEMO_PAT")
 HOST = os.getenv("CORTEX_AGENT_DEMO_HOST")
