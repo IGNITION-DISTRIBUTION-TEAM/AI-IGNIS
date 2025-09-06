@@ -1,5 +1,5 @@
-streamlit==1.49.1  # latest stable version
-snowflake-snowpark-python==1.38.0  # works on Python 3.10/3.11
+streamlit==1.49.1
+snowflake-snowpark-python==1.38.0
 snowflake-cortex==0.7.0
 pandas
 numpy
