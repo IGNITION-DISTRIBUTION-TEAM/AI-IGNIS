@@ -157,7 +157,6 @@ def render_message(msg: Message):
 
 
 st.title("Hi my name is Ignis")
-st.title("please enter a prompt")
 
 if "messages" not in st.session_state:
     st.session_state.messages = []
