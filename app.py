@@ -21,6 +21,9 @@ from models.thinking_event_data import ThinkingEventData
 from models.tool_result_event_data import ToolResultEventData
 from models.tool_use_event_data import ToolUseEventData
 
+import urllib3
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
 PAT = os.getenv("CORTEX_AGENT_DEMO_PAT")
 HOST = os.getenv("CORTEX_AGENT_DEMO_HOST")
 DATABASE = os.getenv("CORTEX_AGENT_DEMO_DATABASE", "SNOWFLAKE_INTELLIGENCE")
