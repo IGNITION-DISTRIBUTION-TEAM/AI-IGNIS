@@ -164,7 +164,7 @@ with st.sidebar:
     if st.button("New Chat", icon=":material/chat:", width="stretch"):
         st.rerun()
     st.title("")
-    with st.popover("Open popover"):
+    with st.popover("Agent", icon=":material/chat:", width="stretch"):
         st.markdown("Hello World 👋")
         name = st.text_input("What's your name?")
     st.title("")
