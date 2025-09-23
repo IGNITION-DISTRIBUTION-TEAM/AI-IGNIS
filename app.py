@@ -160,9 +160,12 @@ def render_message(msg: Message):
 
 with st.sidebar:
     st.title(":blue[Snowflake Intellegence]")
+    st.title("")
     st.button("New Chat", icon=":material/chat:", width="stretch")
-
-
+    st.title("")
+    st.button("Agents", icon=":material/mood:", width="stretch")
+    st.title("")
+    st.button("Recents", icon=":material/mood:", width="stretch")
 
 st.title("Good afternoon, Andre")
 st.title(":blue[What insights can I help with?]")
