@@ -158,7 +158,13 @@ def render_message(msg: Message):
                         content_item.actual_instance.to_json()
                     )
 
+with st.sidebar:
+    with st.echo():
+        st.write("This code will be printed to the sidebar.")
 
+    with st.spinner("Loading..."):
+        time.sleep(5)
+    st.success("Done!")
 st.title("Hi my name is Ignis")
 
 if "messages" not in st.session_state:
