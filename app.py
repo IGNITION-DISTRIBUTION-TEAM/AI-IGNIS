@@ -165,8 +165,8 @@ with st.sidebar:
         st.rerun()
     st.title("")
     with st.popover("Agent", icon=":material/chat:", width="stretch"):
-        st.markdown("Hello World 👋")
-        name = st.text_input("What's your name?")
+        options = ["Agent1", "Agent2", "Agent3", "Agent4"]
+        selection = st.pills("Directions", options, selection_mode="multi")
     st.title("")
     with st.popover("Recents", icon=":material/chat:", width="stretch"):
         st.markdown("Hello World 👋")
