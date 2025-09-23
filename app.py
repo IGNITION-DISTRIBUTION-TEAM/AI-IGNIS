@@ -161,10 +161,12 @@ def render_message(msg: Message):
 with st.sidebar:
     st.title(":blue[Snowflake Intellegence]")
     st.title("")
-    if st.text("New Chat", icon=":material/chat:", width="stretch"):
+    if st.title("New Chat", icon=":material/chat:", width="stretch"):
         st.rerun()
     st.title("")
-    st.button("Agents", icon=":material/collapse_content:", width="stretch")
+    if st.button("Agents", icon=":material/collapse_content:", width="stretch")
+        with st.popover("Settings"):
+          st.checkbox("Show completed")
     st.title("")
     st.button("Recents", icon=":material/clock_loader_20:", width="stretch")
 
