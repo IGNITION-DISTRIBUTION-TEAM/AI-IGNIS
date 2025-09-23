@@ -164,10 +164,9 @@ with st.sidebar:
     if st.button("New Chat", icon=":material/chat:", width="stretch"):
         st.rerun()
     st.title("")
-    if st.button("Agents", icon=":material/collapse_content:", width="stretch"):
-        with st.popover("Open popover"):
-            st.markdown("Hello World 👋")
-            name = st.text_input("What's your name?")
+    with st.popover("Open popover"):
+        st.markdown("Hello World 👋")
+        name = st.text_input("What's your name?")
     st.title("")
     st.button("Recents", icon=":material/clock_loader_20:", width="stretch")
 
