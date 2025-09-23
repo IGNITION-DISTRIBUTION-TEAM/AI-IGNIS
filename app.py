@@ -170,7 +170,7 @@ with st.sidebar:
     st.title("")
     with st.popover("Recents", icon=":material/chat:", width="stretch"):
         st.markdown("Hello World 👋")
-        name = st.text_input("What's your name?")
+        name2 = st.text_input("What's your name?")
 
 st.title("Good afternoon, Andre")
 st.title(":blue[What insights can I help with?]")
