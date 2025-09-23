@@ -161,7 +161,8 @@ def render_message(msg: Message):
 with st.sidebar:
     st.title(":blue[Snowflake Intellegence]")
     st.title("")
-    st.button("New Chat", icon=":material/chat:", width="stretch")
+    if st.button("New Chat", icon=":material/chat:", width="stretch")
+        streamlit_js_eval(js_expressions="parent.window.location.reload()")
     st.title("")
     st.button("Agents", icon=":material/collapse_content:", width="stretch")
     st.title("")
