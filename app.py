@@ -162,7 +162,7 @@ with st.sidebar:
     st.title(":blue[Snowflake Intellegence]")
     st.title("")
     if st.button("New Chat", icon=":material/chat:", width="stretch"):
-        st.experimental_rerun()
+        st.rerun()
     st.title("")
     st.button("Agents", icon=":material/collapse_content:", width="stretch")
     st.title("")
