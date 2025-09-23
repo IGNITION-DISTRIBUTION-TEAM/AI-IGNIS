@@ -20,6 +20,7 @@ from models.thinking_delta_event_data import ThinkingDeltaEventData
 from models.thinking_event_data import ThinkingEventData
 from models.tool_result_event_data import ToolResultEventData
 from models.tool_use_event_data import ToolUseEventData
+from streamlit_js_eval import streamlit_js_eval
 
 import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
