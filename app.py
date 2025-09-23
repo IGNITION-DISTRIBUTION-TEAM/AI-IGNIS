@@ -165,8 +165,11 @@ with st.sidebar:
     with st.spinner("Loading..."):
         time.sleep(5)
     st.success("Done!")
-    
-st.title("Hi my name is Ignis")
+
+
+
+st.title("Good afternoon, Andre")
+st.title("What insights can I help with?")
 
 if "messages" not in st.session_state:
     st.session_state.messages = []
