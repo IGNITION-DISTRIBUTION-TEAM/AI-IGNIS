@@ -159,7 +159,7 @@ def render_message(msg: Message):
                     )
 
 with st.sidebar:
-    st.title("blue[Snowflake Intellegence]")
+    st.title(":blue[Snowflake Intellegence]")
     st.button("Reset", type="primary")
 
 
