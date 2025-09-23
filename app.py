@@ -163,7 +163,7 @@ with st.sidebar:
     st.title("")
     st.button("New Chat", icon=":material/chat:", width="stretch")
     st.title("")
-    st.button("Agents", icon=":material/mood:", width="stretch")
+    st.button("Agents", icon=":material/collapse content:", width="stretch")
     st.title("")
     st.button("Recents", icon=":material/mood:", width="stretch")
 
