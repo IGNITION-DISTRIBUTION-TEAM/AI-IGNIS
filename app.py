@@ -159,12 +159,8 @@ def render_message(msg: Message):
                     )
 
 with st.sidebar:
-    with st.echo():
-        st.write("This code will be printed to the sidebar.")
-
-    with st.spinner("Loading..."):
-        time.sleep(5)
-    st.success("Done!")
+    st.title("blue[Snowflake Intellegence]")
+    st.button("Reset", type="primary")
 
 
 
