@@ -165,7 +165,7 @@ with st.sidebar:
     st.title("")
     st.button("Agents", icon=":material/collapse_content:", width="stretch")
     st.title("")
-    st.button("Recents", icon=":material/mood:", width="stretch")
+    st.button("Recents", icon=":material/clock_loader_20:", width="stretch")
 
 st.title("Good afternoon, Andre")
 st.title(":blue[What insights can I help with?]")
