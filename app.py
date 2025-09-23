@@ -169,8 +169,7 @@ with st.sidebar:
         selection = st.pills("Directions", options, selection_mode="multi")
     st.title("")
     with st.popover("Recents", icon=":material/chat:", width="stretch"):
-        st.markdown("Hello World 👋")
-        name2 = st.text_input("What's your namef?")
+        genre = st.radio("What's your favorite movie genre",[":rainbow[Comedy]", "***Drama***", "Documentary :movie_camera:"],index=None,)
 
 st.title("Good afternoon, Andre")
 st.title(":blue[What insights can I help with?]")
