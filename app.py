@@ -1,7 +1,7 @@
 import json
 import os
 from collections import defaultdict
-
+import time
 import numpy as np
 import pandas as pd
 import requests
@@ -165,6 +165,7 @@ with st.sidebar:
     with st.spinner("Loading..."):
         time.sleep(5)
     st.success("Done!")
+    
 st.title("Hi my name is Ignis")
 
 if "messages" not in st.session_state:
