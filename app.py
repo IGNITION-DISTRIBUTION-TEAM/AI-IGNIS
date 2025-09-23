@@ -164,7 +164,7 @@ with st.sidebar:
     if st.title("New Chat", icon=":material/chat:", width="stretch"):
         st.rerun()
     st.title("")
-    if st.button("Agents", icon=":material/collapse_content:", width="stretch")
+    if st.button("Agents", icon=":material/collapse_content:", width="stretch"):
         with st.popover("Settings"):
           st.checkbox("Show completed")
     st.title("")
