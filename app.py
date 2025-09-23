@@ -166,10 +166,10 @@ with st.sidebar:
     st.title("")
     with st.popover("Agent", icon=":material/chat:", width="stretch"):
         options = ["Agent1", "Agent2", "Agent3", "Agent4"]
-        selection = st.pills("Directions", options, selection_mode="multi")
+        selection = st.pills("Please select Agents", options, selection_mode="multi")
     st.title("")
     with st.popover("Recents", icon=":material/chat:", width="stretch"):
-        genre = st.radio("What's your favorite movie genre",[":rainbow[Comedy]", "***Drama***", "Documentary :movie_camera:"],index=None,)
+        genre = st.radio("Please select the recent chat",["hello", "show me all sales"],index=None,)
 
 st.title("Good afternoon, Andre")
 st.title(":blue[What insights can I help with?]")
