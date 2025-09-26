@@ -164,12 +164,10 @@ with st.sidebar:
     if st.button("New Chat", icon=":material/chat:", width="stretch"):
         st.rerun()
     st.title("")
-    with st.popover("Agent", icon=":material/chat:", width="stretch"):
-        options = ["Agent1", "Agent2", "Agent3", "Agent4"]
-        selection = st.pills("Please select Agents", options, selection_mode="multi")
-    st.title("")
     with st.popover("Recents", icon=":material/chat:", width="stretch"):
         genre = st.radio("Please select the recent chat",["hello", "show me all sales"],index=None,)
+    st.title("")   
+    
 
 st.title("Good afternoon, Andre")
 st.title(":blue[What insights can I help with?]")
