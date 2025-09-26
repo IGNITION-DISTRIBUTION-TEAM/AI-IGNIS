@@ -167,17 +167,37 @@ with st.sidebar:
     with st.popover("Recents", icon=":material/chat:", width="stretch"):
         genre = st.radio("Please select the recent chat",["hello", "show me all sales"],index=None,)
     st.title("")   
-    if st.button("Submit Suggestion"):
-        st.success("✅ Thanks for your feedback!")
-    st.sidebar.markdown("<div style='flex:1'></div>", unsafe_allow_html=True)
+    suggestions = [
+        "Tell me a joke",
+        "Summarize this document",
+        "Explain AI in simple terms",
+        "Generate SQL query"
+    ]
 
-    with st.sidebar:
-        st.markdown("---")  # separator line
-        st.subheader("⚙️ Account Settings")
-        username = st.text_input("Username")
-        email = st.text_input("Email")
-        if st.button("Save Settings"):
-            st.success("✅ Settings saved")
+    for s in suggestions:
+        if st.sidebar.button(s):
+            st.session_state["chat_input"] = s  # save into session (for chatbot input)
+
+    st.sidebar.markdown("---")
+    st.sidebar.subheader("⚙️ Account Settings")
+
+    if "user_email" not in st.session_state:
+        st.session_state["user_email"] = "user@example.com"
+
+    st.sidebar.write(f"📧 {st.session_state['user_email']}")
+
+    if st.sidebar.button("Edit Settings"):
+        st.session_state["show_modal"] = True
+
+    if st.session_state.get("show_modal", False):
+        with st.modal("Edit Account Settings"):
+            new_email = st.text_input("Email", value=st.session_state["user_email"])
+            if st.button("Save"):
+                st.session_state["user_email"] = new_email
+                st.session_state["show_modal"] = False
+                st.success("✅ Settings updated")
+            if st.button("Cancel"):
+                st.session_state["show_modal"] = False
 
 st.title("Good afternoon, Andre")
 st.title(":blue[What insights can I help with?]")
