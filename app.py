@@ -159,7 +159,7 @@ def render_message(msg: Message):
                     )
 with st.sidebar:
     # Logo at the top
-    st.image("logo.jpg", width=120)  # replace with your logo file
+    st.image("images/logo.jpg", width=120)  # replace with your logo file
     st.markdown("<h3 style='text-align:center'>ChatApp</h3>", unsafe_allow_html=True)
     
     st.markdown("---")  # horizontal divider
