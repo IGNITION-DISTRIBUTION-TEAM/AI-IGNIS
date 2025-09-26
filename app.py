@@ -163,10 +163,10 @@ with st.sidebar:
     col1, col2, col3 = st.columns(3)
 
     with col1:
-    st.title(":blue[IGNIS]")
+        st.title(":blue[IGNIS]")
 
     with col2:
-    st.sidebar.image("images/logo.jpg",width=50)
+        st.sidebar.image("images/logo.jpg",width=50)
     
     st.title("")
     if st.button("New Chat", icon=":material/chat:", width="stretch"):
