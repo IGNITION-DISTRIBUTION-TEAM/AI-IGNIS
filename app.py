@@ -157,7 +157,41 @@ def render_message(msg: Message):
                     st.expander(content_item.actual_instance.type).json(
                         content_item.actual_instance.to_json()
                     )
+with st.sidebar:
+    # Logo at the top
+    st.image("logo.png", width=120)  # replace with your logo file
+    st.markdown("<h3 style='text-align:center'>ChatApp</h3>", unsafe_allow_html=True)
+    
+    st.markdown("---")  # horizontal divider
 
+    # New Chat button
+    if st.button("➕ New Chat"):
+        st.session_state['current_chat'] = None  # clear current chat
+        st.success("Started a new chat!")
+
+    st.markdown("---")
+
+    # Recents
+    st.markdown("### Recents")
+    recent_chats = st.session_state.get("recent_chats", ["Chat with Alice", "Project Discussion", "Support Ticket"])
+    selected_recent = st.radio("Select a recent chat:", recent_chats, index=0 if recent_chats else None)
+
+    st.markdown("---")
+
+    # Suggested Prompts
+    st.markdown("### Suggested Prompts")
+    suggested_prompts = ["What's the weather today?", "Summarize last meeting", "Generate ideas for marketing"]
+    for prompt in suggested_prompts:
+        if st.button(prompt):
+            st.session_state['current_chat'] = prompt
+            st.success(f"Selected prompt: {prompt}")
+
+# Main area
+st.title("Chat Window")
+if 'current_chat' in st.session_state and st.session_state['current_chat']:
+    st.write(f"💬 Chatting about: {st.session_state['current_chat']}")
+else:
+    st.write("Start a new chat or select one from Recents/Suggested Prompts.")
 st.title("Good afternoon, Andre")
 st.title(":blue[What insights can I help with?]")
 
