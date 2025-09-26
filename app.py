@@ -158,9 +158,9 @@ def render_message(msg: Message):
                         content_item.actual_instance.to_json()
                     )
 
-with st.sidebar:
+ col1, col2, col3 = st.columns(3)
 
-    col1, col2, col3 = st.columns(3)
+with st.sidebar:
 
     with col1:
         st.title(":blue[IGNIS]")
