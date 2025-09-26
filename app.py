@@ -167,7 +167,7 @@ with st.sidebar:
     with st.popover("Recents", icon=":material/chat:", width="stretch"):
         genre = st.radio("Please select the recent chat",["hello", "show me all sales"],index=None,)
     st.title("")   
-    st.columns(1, border=True)
+    st.columns(1, border=True,width="stretch")
 
 st.title("Good afternoon, Andre")
 st.title(":blue[What insights can I help with?]")
