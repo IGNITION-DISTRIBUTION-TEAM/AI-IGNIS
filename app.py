@@ -173,10 +173,30 @@ with st.sidebar:
         "Explain AI in simple terms",
         "Generate SQL query"
     ]
-
+    
+    # Initialize chat input
+    if "chat_input" not in st.session_state:
+        st.session_state["chat_input"] = ""
+    
+    # Create a bordered container for suggestions
+    st.sidebar.markdown(
+        """
+        <div style="
+            border: 1px solid #ccc; 
+            border-radius: 8px; 
+            padding: 10px; 
+            background-color: #f9f9f9;
+        ">
+        """, 
+        unsafe_allow_html=True
+    )
+    
+    # Display each suggestion as clickable text
     for s in suggestions:
-        if st.sidebar.button(s):
-            st.session_state["chat_input"] = s  # save into session (for chatbot input)
+        if st.sidebar.button(s, key=f"sugg_{s}"):
+            st.session_state["chat_input"] = s
+    
+    st.sidebar.markdown("</div>", unsafe_allow_html=True)
 
     if "user_email" not in st.session_state:
         st.session_state["user_email"] = "user@example.com"
