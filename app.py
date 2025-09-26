@@ -160,21 +160,86 @@ def render_message(msg: Message):
 
 
 
-with st.sidebar:
-    
-    col1, col2 = st.columns([1, 5])
-    with col1:
-        st.image("images/logo.jpg",width=30)
-    with col2:
-        st.markdown("<h2 style='margin:0;'>:blue[IGNIS]</h2>", unsafe_allow_html=True)
-    
-    st.title("")
-    if st.button("New Chat", icon=":material/chat:", width="stretch"):
-        st.rerun()
-    st.title("")
-    with st.popover("Recents", icon=":material/chat:", width="stretch"):
-        genre = st.radio("Please select the recent chat",["hello", "show me all sales"],index=None,)
-    st.title("")   
+st.markdown("""
+<div style="display: flex; align-items: center; margin-bottom: 20px;">
+    <img src="images/logo.png" width="60" style="margin-right: 15px; vertical-align: middle;">
+    <div style="display: flex; flex-direction: column; justify-content: center;">
+        <span style="font-size: 28px; font-weight: bold;">My Chatbot App</span>
+        <span style="font-size: 14px; color: gray;">Your tagline goes here</span>
+    </div>
+</div>
+""", unsafe_allow_html=True)
+
+# -----------------
+# Sidebar: Suggested Prompts
+# -----------------
+st.sidebar.header("💡 Suggested Prompts")
+
+suggestions = [
+    "Tell me a joke",
+    "Summarize this document",
+    "Explain AI in simple terms",
+    "Generate SQL query"
+]
+
+if "chat_input" not in st.session_state:
+    st.session_state["chat_input"] = ""
+
+# Bordered container for suggestions
+st.sidebar.markdown("""
+<div style="
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    margin-bottom: 20px;
+">
+""", unsafe_allow_html=True)
+
+for s in suggestions:
+    if st.sidebar.button(s, key=f"sugg_{s}"):
+        st.session_state["chat_input"] = s
+
+st.sidebar.markdown("</div>", unsafe_allow_html=True)
+
+# -----------------
+# Sidebar: Account Settings
+# -----------------
+st.sidebar.markdown("---")
+st.sidebar.subheader("⚙️ Account Settings")
+
+if "user_email" not in st.session_state:
+    st.session_state["user_email"] = "user@example.com"
+if "show_settings" not in st.session_state:
+    st.session_state["show_settings"] = False
+
+st.sidebar.write(f"📧 {st.session_state['user_email']}")
+
+if st.sidebar.button("Edit Settings"):
+    st.session_state["show_settings"] = True
+
+# Settings editor in a bordered container
+if st.session_state["show_settings"]:
+    st.sidebar.markdown("""
+    <div style="
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        padding: 10px;
+        background-color: #f0f0f0;
+        margin-top: 10px;
+    ">
+    """, unsafe_allow_html=True)
+
+    new_email = st.sidebar.text_input("Email", value=st.session_state["user_email"])
+    col1, col2 = st.sidebar.columns(2)
+    if col1.button("Save"):
+        st.session_state["user_email"] = new_email
+        st.session_state["show_settings"] = False
+        st.success("✅ Settings updated")
+    if col2.button("Cancel"):
+        st.session_state["show_settings"] = False
+
+    st.sidebar.markdown("</div>", unsafe_allow_html=True)
 
 st.title("Good afternoon, Andre")
 st.title(":blue[What insights can I help with?]")
