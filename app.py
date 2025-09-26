@@ -162,7 +162,7 @@ def render_message(msg: Message):
 
 with st.sidebar:
     
-    col1, col2, col3 = st.columns(3)
+    col1, col2 = st.columns([1, 5])
     with col1:
         st.image("images/logo.jpg",width=50)
     with col2:
