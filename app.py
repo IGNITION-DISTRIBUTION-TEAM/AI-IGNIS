@@ -166,7 +166,7 @@ with st.sidebar:
     with col1:
         st.image("images/logo.jpg",width=30)
     with col2:
-        st.title(":blue[IGNIS]")
+        st.markdown("<h2 style='margin:0;'>:blue[IGNIS]</h2>", unsafe_allow_html=True)
     
     st.title("")
     if st.button("New Chat", icon=":material/chat:", width="stretch"):
