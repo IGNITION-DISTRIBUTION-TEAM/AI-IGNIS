@@ -165,7 +165,7 @@ with st.sidebar:
     with col1:
         st.sidebar.image("images/logo.jpg",width=50)
     with col2:
-        st.title(":blue[IGNIS]")
+        st.sidebar.title(":blue[IGNIS]")
     
     st.title("")
     if st.button("New Chat", icon=":material/chat:", width="stretch"):
