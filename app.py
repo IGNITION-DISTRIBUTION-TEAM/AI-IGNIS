@@ -164,7 +164,7 @@ with st.sidebar:
     
     col1, col2 = st.columns([1, 5])
     with col1:
-        st.image("images/logo.jpg",width=50)
+        st.image("images/logo.jpg",width=20)
     with col2:
         st.title(":blue[IGNIS]")
     
