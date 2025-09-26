@@ -178,26 +178,45 @@ with st.sidebar:
         if st.sidebar.button(s):
             st.session_state["chat_input"] = s  # save into session (for chatbot input)
 
-    st.sidebar.markdown("---")
-    st.sidebar.subheader("⚙️ Account Settings")
-
     if "user_email" not in st.session_state:
         st.session_state["user_email"] = "user@example.com"
-
+    if "show_settings" not in st.session_state:
+        st.session_state["show_settings"] = False
+    
+    st.sidebar.subheader("⚙️ Account Settings")
     st.sidebar.write(f"📧 {st.session_state['user_email']}")
-
+    
     if st.sidebar.button("Edit Settings"):
-        st.session_state["show_modal"] = True
-
-    if st.session_state.get("show_modal", False):
-        with st.modal("Edit Account Settings"):
-            new_email = st.text_input("Email", value=st.session_state["user_email"])
-            if st.button("Save"):
-                st.session_state["user_email"] = new_email
-                st.session_state["show_modal"] = False
-                st.success("✅ Settings updated")
-            if st.button("Cancel"):
-                st.session_state["show_modal"] = False
+        st.session_state["show_settings"] = True
+    
+    # -----------------
+    # Settings Editor (with border)
+    # -----------------
+    if st.session_state["show_settings"]:
+        try:
+            # ✅ Preferred: modern modal with border container
+            with st.modal("Edit Account Settings"):
+                with st.container(border=True):
+                    new_email = st.text_input("Email", value=st.session_state["user_email"])
+                    col1, col2 = st.columns(2)
+                    if col1.button("Save"):
+                        st.session_state["user_email"] = new_email
+                        st.session_state["show_settings"] = False
+                        st.success("✅ Settings updated")
+                    if col2.button("Cancel"):
+                        st.session_state["show_settings"] = False
+        except AttributeError:
+            # 🔄 Fallback for older Streamlit (no st.modal)
+            st.markdown("### Edit Account Settings")
+            with st.container(border=True):
+                new_email = st.text_input("Email", value=st.session_state["user_email"])
+                col1, col2 = st.columns(2)
+                if col1.button("Save"):
+                    st.session_state["user_email"] = new_email
+                    st.session_state["show_settings"] = False
+                    st.success("✅ Settings updated")
+                if col2.button("Cancel"):
+                    st.session_state["show_settings"] = False
 
 st.title("Good afternoon, Andre")
 st.title(":blue[What insights can I help with?]")
