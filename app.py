@@ -167,7 +167,17 @@ with st.sidebar:
     with st.popover("Recents", icon=":material/chat:", width="stretch"):
         genre = st.radio("Please select the recent chat",["hello", "show me all sales"],index=None,)
     st.title("")   
-    st.columns(1, border=True,width="stretch")
+    if st.button("Submit Suggestion"):
+        st.success("✅ Thanks for your feedback!")
+    st.sidebar.markdown("<div style='flex:1'></div>", unsafe_allow_html=True)
+
+    with st.sidebar:
+        st.markdown("---")  # separator line
+        st.subheader("⚙️ Account Settings")
+        username = st.text_input("Username")
+        email = st.text_input("Email")
+        if st.button("Save Settings"):
+            st.success("✅ Settings saved")
 
 st.title("Good afternoon, Andre")
 st.title(":blue[What insights can I help with?]")
