@@ -167,6 +167,7 @@ with st.sidebar:
     with st.popover("Recents", icon=":material/chat:", width="stretch"):
         genre = st.radio("Please select the recent chat",["hello", "show me all sales"],index=None,)
     st.title("")   
+    
     suggestions = [
         "Tell me a joke",
         "Summarize this document",
@@ -179,7 +180,7 @@ with st.sidebar:
         st.session_state["chat_input"] = ""
     
     # Create a bordered container for suggestions
-    st.sidebar.markdown(
+    st.markdown(
         """
         <div style="
             border: 1px solid #ccc; 
@@ -193,10 +194,10 @@ with st.sidebar:
     
     # Display each suggestion as clickable text
     for s in suggestions:
-        if st.sidebar.button(s, key=f"sugg_{s}"):
+        if st.button(s, key=f"sugg_{s}"):
             st.session_state["chat_input"] = s
     
-    st.sidebar.markdown("</div>", unsafe_allow_html=True)
+    st.markdown("</div>", unsafe_allow_html=True)
 
     if "user_email" not in st.session_state:
         st.session_state["user_email"] = "user@example.com"
