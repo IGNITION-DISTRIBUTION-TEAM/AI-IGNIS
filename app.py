@@ -185,14 +185,6 @@ with st.sidebar:
             st.session_state['current_chat'] = prompt
             st.success(f"Selected prompt: {prompt}")
 
-# Main area
-st.title("Chat Window")
-if 'current_chat' in st.session_state and st.session_state['current_chat']:
-    st.write(f"💬 Chatting about: {st.session_state['current_chat']}")
-else:
-    st.write("Start a new chat or select one from Recents/Suggested Prompts.")
-st.title("Good afternoon, Andre")
-st.title(":blue[What insights can I help with?]")
 
 if "messages" not in st.session_state:
     st.session_state.messages = []
