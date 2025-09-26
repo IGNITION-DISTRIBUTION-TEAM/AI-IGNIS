@@ -159,16 +159,36 @@ def render_message(msg: Message):
                     )
 
 
-st.sidebar.markdown("""
-<div style="display: flex; align-items: center; margin-bottom: 20px;">
-    <img src="images/logo.png" width="60" style="margin-right: 15px; vertical-align: middle;">
-    <div style="display: flex; flex-direction: column; justify-content: center;">
-        <span style="font-size: 28px; font-weight: bold;">My Chatbot App</span>
-        <span style="font-size: 14px; color: gray;">Your tagline goes here</span>
-    </div>
-</div>
-""", unsafe_allow_html=True)
+import streamlit as st
+from PIL import Image
 
+# -----------------
+# Page config
+# -----------------
+st.set_page_config(page_title="Chatbot App", layout="wide")
+
+# -----------------
+# Main Page: Logo + App Name (aligned using columns)
+# -----------------
+logo = Image.open("images/logo.png")  # make sure this path exists in your repo
+col1, col2 = st.columns([1, 5])
+
+with col1:
+    st.image(logo, width=60)
+
+with col2:
+    st.markdown("""
+        <div style="display: flex; flex-direction: column; justify-content: center;">
+            <span style="font-size:28px; font-weight:bold;">My Chatbot App</span>
+            <span style="font-size:14px; color:gray;">Your tagline goes here</span>
+        </div>
+    """, unsafe_allow_html=True)
+
+st.markdown("---")  # separator
+
+# -----------------
+# Sidebar: Suggested Prompts
+# -----------------
 st.sidebar.header("💡 Suggested Prompts")
 
 suggestions = [
@@ -214,7 +234,7 @@ st.sidebar.write(f"📧 {st.session_state['user_email']}")
 if st.sidebar.button("Edit Settings"):
     st.session_state["show_settings"] = True
 
-# Settings editor in a bordered container
+# Settings editor in bordered container
 if st.session_state["show_settings"]:
     st.sidebar.markdown("""
     <div style="
