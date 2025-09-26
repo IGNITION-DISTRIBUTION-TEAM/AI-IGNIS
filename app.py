@@ -160,6 +160,7 @@ def render_message(msg: Message):
 
 with st.sidebar:
     st.title(":blue[IGNIS]")
+    st.sidebar.image("images/logo.png", width=150)
     st.title("")
     if st.button("New Chat", icon=":material/chat:", width="stretch"):
         st.rerun()
