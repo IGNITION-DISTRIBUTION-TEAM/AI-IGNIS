@@ -159,15 +159,6 @@ def render_message(msg: Message):
                     )
 
 
-
-
-
-# -----------------
-# Sidebar: Suggested Prompts
-# -----------------
-st.sidebar.header("💡 Suggested Prompts")
-
-
 st.sidebar.markdown("""
 <div style="display: flex; align-items: center; margin-bottom: 20px;">
     <img src="images/logo.png" width="60" style="margin-right: 15px; vertical-align: middle;">
@@ -177,6 +168,8 @@ st.sidebar.markdown("""
     </div>
 </div>
 """, unsafe_allow_html=True)
+
+st.sidebar.header("💡 Suggested Prompts")
 
 suggestions = [
     "Tell me a joke",
