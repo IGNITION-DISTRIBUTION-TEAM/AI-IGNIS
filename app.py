@@ -175,10 +175,6 @@ with st.sidebar:
         "Generate SQL query"
     ]
     
-    # Initialize chat input
-    if "chat_input" not in st.session_state:
-        st.session_state["chat_input"] = ""
-    
     # Create a bordered container for suggestions
     st.markdown(
         """
