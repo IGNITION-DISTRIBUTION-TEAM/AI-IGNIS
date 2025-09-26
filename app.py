@@ -159,7 +159,7 @@ def render_message(msg: Message):
                     )
 
 with st.sidebar:
-    st.title(":blue[Snowflake Intellegence]")
+    st.title(":blue[IGNIS]")
     st.title("")
     if st.button("New Chat", icon=":material/chat:", width="stretch"):
         st.rerun()
