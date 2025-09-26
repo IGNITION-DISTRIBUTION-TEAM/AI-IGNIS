@@ -158,7 +158,7 @@ def render_message(msg: Message):
                         content_item.actual_instance.to_json()
                     )
 
- col1, col2, col3 = st.columns(3)
+col1, col2, col3 = st.columns(3)
 
 with st.sidebar:
 
