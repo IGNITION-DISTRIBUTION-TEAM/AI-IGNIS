@@ -1,31 +1,5 @@
 import streamlit as st
-
-def get_user_by_email(email: str):
-    conn = get_snowflake_connection()
-    cur = conn.cursor()
-    try:
-        cur.execute(
-            "SELECT USER, PASSWORD, ROLE FROM SNOWFLAKE_INTELLIGENCE.STREAMLITAI.TM_EMPLOYEE_CREDENTIALS WHERE USER=%s",
-            (email,)
-        )
-        return cur.fetchone()
-    finally:
-        cur.close()
-        conn.close()
-
-def set_user_password(email: str, password: str):
-    conn = get_snowflake_connection()
-    cur = conn.cursor()
-    try:
-        cur.execute(
-            "UPDATE SNOWFLAKE_INTELLIGENCE.STREAMLITAI.TM_EMPLOYEE_CREDENTIALS SET PASSWORD=%s WHERE USER=%s",
-            (password, email)
-        )
-        conn.commit()
-    finally:
-        cur.close()
-        conn.close()
-
+from db import get_JWT
 
 def check_user(email, password=None, new_password=None):
     row = get_user_by_email(email)
