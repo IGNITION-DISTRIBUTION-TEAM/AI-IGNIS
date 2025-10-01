@@ -51,7 +51,7 @@ with col2:
         </h2>
         """, unsafe_allow_html=True)
 
-        email = st.text_input("Email")
+        email = st.text_input("User")
         password = st.text_input("Password", type="password")
 
         if st.button("Login", width="stretch"):
