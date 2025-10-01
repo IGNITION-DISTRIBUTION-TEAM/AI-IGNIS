@@ -20,15 +20,44 @@ from models.thinking_delta_event_data import ThinkingDeltaEventData
 from models.thinking_event_data import ThinkingEventData
 from models.tool_result_event_data import ToolResultEventData
 from models.tool_use_event_data import ToolUseEventData
-
+import jwt
+from datetime import datetime, timedelta, timezone
+from cryptography.hazmat.primitives.serialization import load_pem_private_key
+from cryptography.hazmat.backends import default_backend
 import urllib3
+
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
-PAT = os.getenv("CORTEX_AGENT_DEMO_PAT")
-HOST = os.getenv("CORTEX_AGENT_DEMO_HOST")
-DATABASE = os.getenv("CORTEX_AGENT_DEMO_DATABASE", "SNOWFLAKE_INTELLIGENCE")
-SCHEMA = os.getenv("CORTEX_AGENT_DEMO_SCHEMA", "AGENTS")
-AGENT = os.getenv("CORTEX_AGENT_DEMO_AGENT", "CX_SALES")
+HOST = "pm58521.east-us-2.azure.snowflakecomputing.com"
+DATABASE = "SNOWFLAKE_INTELLIGENCE"
+SCHEMA = "AGENTS"
+AGENT =  "IGNITION_POLICIES_ASSISTANT"
+
+account = "pm58521".upper()
+user = "STREAMLITAI".upper()
+qualified_username = account + "." + user
+fingerprint_from_describe_user = "SHA256:3OngP5lVHGHb6tKCzjBNkIq7hOmAHNjzTxq4ZuHNll8="
+
+now = datetime.now(timezone.utc)
+lifetime = timedelta(minutes=59)
+
+# Construct JWT payload with issuer, subject, issue time, and expiration time
+payload = {
+    "iss": qualified_username + '.' + fingerprint_from_describe_user,
+    "sub": qualified_username,
+    "iat": now,
+    "exp": now + lifetime
+}
+
+encoding_algorithm = "RS256"
+
+private_key_path = "keys/rsa_key.p8"
+with open(private_key_path, "rb") as pem_in:
+    private_key = load_pem_private_key(pem_in.read(), password=None, backend=default_backend())
+    token = jwt.encode(payload, key=private_key, algorithm=encoding_algorithm)
+
+if isinstance(token, bytes):
+    token = token.decode('utf-8')
 
 
 def agent_run() -> requests.Response:
@@ -41,8 +70,9 @@ def agent_run() -> requests.Response:
         url=f"https://{HOST}/api/v2/databases/{DATABASE}/schemas/{SCHEMA}/agents/{AGENT}:run",
         data=request_body.to_json(),
         headers={
-            "Authorization": f"Bearer {PAT}",
-            "Content-Type": "application/json",
+        "Content-Type": "application/json",
+        "Authorization": f"Bearer {token}",
+        "X-Snowflake-Authorization-Token-Type": "KEYPAIR_JWT"
         },
         stream=True,
         verify=False,
