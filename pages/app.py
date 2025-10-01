@@ -31,9 +31,8 @@ from st_pages import show_pages, hide_pages, Page
 
 hide_pages(
     [
-        Page("home.py"),
-        Page("pages/test.py"),
-        Page("pages/example.py"),
+        Page("login.py"),
+        Page("pages/app.py"),
     ]
 )
 
