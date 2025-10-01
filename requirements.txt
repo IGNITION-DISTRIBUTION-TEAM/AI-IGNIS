@@ -9,3 +9,4 @@ pydantic
 typing-extensions
 jwt
 PyJWT
+snowflake-connector-python
