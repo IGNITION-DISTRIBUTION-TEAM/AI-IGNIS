@@ -8,3 +8,4 @@ urllib3
 pydantic
 typing-extensions
 jwt
+PyJWT
