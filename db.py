@@ -11,7 +11,7 @@ user = "STREAMLITAI".upper()
 qualified_username = account + "." + user
 fingerprint_from_describe_user = "SHA256:3OngP5lVHGHb6tKCzjBNkIq7hOmAHNjzTxq4ZuHNll8="
 
-def get_JWT()
+def get_JWT():
     now = datetime.now(timezone.utc)
     lifetime = timedelta(minutes=59)
     
