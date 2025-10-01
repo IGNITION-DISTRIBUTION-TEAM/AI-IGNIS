@@ -64,7 +64,7 @@ with col2:
             elif status == "success":
                 st.session_state.email = email
                 st.session_state.role = role
-                st.switch_page("pages/Chat.py")
+                st.switch_page("pages/app.py")
             elif status == "wrong_password":
                 st.error("Incorrect password.")
 
