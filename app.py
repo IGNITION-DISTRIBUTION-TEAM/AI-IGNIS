@@ -25,6 +25,7 @@ from datetime import datetime, timedelta, timezone
 from cryptography.hazmat.primitives.serialization import load_pem_private_key
 from cryptography.hazmat.backends import default_backend
 import urllib3
+from db import get_JWT
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
@@ -59,6 +60,7 @@ with open(private_key_path, "rb") as pem_in:
 if isinstance(token, bytes):
     token = token.decode('utf-8')
 
+db_token = get_JWT()
 
 def agent_run() -> requests.Response:
     """Calls the REST API and returns a streaming client."""
@@ -71,7 +73,7 @@ def agent_run() -> requests.Response:
         data=request_body.to_json(),
         headers={
         "Content-Type": "application/json",
-        "Authorization": f"Bearer {token}",
+        "Authorization": f"Bearer {db_token}",
         "X-Snowflake-Authorization-Token-Type": "KEYPAIR_JWT"
         },
         stream=True,
