@@ -3,6 +3,7 @@ from datetime import datetime, timedelta, timezone
 from cryptography.hazmat.primitives.serialization import load_pem_private_key
 from cryptography.hazmat.backends import default_backend
 import urllib3
+import snowflake.connector
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
