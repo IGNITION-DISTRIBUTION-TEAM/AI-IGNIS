@@ -165,7 +165,7 @@ def render_message(msg: Message):
                     )
 with st.sidebar:
     # Logo at the top
-    st.image("images/logo.jpg", width=40)  # replace with your logo file
+    st.image("images/logo.jpg", width=120)  # replace with your logo file
     
     st.markdown("---")  # horizontal divider
 
