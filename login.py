@@ -1,6 +1,7 @@
 import streamlit as st
 from db import get_JWT
 from db import get_user_by_email, set_user_password
+import snowflake.connector
 
 def check_user(email, password=None, new_password=None):
     row = get_user_by_email(email)
