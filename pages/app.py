@@ -28,14 +28,6 @@ import urllib3
 from db import get_JWT
 from st_pages import show_pages, hide_pages, Page
 
-
-hide_pages(
-    [
-        Page("login.py"),
-        Page("pages/app.py"),
-    ]
-)
-
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 HOST = "pm58521.east-us-2.azure.snowflakecomputing.com"
