@@ -29,7 +29,7 @@ from db import get_JWT
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
-AGENT_HOST = "pm58521.east-us-2.azure.snowflakecomputing.com"
+HOST = "pm58521.east-us-2.azure.snowflakecomputing.com"
 DATABASE = "SNOWFLAKE_INTELLIGENCE"
 SCHEMA = "AGENTS"
 AGENT_NAME = "IGNITION_POLICIES_ASSISTANT"
