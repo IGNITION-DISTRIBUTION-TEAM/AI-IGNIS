@@ -32,4 +32,4 @@ def get_JWT()
     
     if isinstance(token, bytes):
         token = token.decode('utf-8')
-return token
+    return token
