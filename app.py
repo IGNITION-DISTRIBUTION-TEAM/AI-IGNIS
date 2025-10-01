@@ -32,7 +32,7 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 HOST = "pm58521.east-us-2.azure.snowflakecomputing.com"
 DATABASE = "SNOWFLAKE_INTELLIGENCE"
 SCHEMA = "AGENTS"
-AGENT_NAME = "IGNITION_POLICIES_ASSISTANT"
+AGENT = "IGNITION_POLICIES_ASSISTANT"
 
 db_token = get_JWT()
 
