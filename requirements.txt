@@ -10,4 +10,5 @@ typing-extensions
 jwt
 PyJWT
 snowflake-connector-python
-st_pages
+st-pages
+
