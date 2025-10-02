@@ -52,10 +52,10 @@ with col2:
         """, unsafe_allow_html=True)
 
         email = st.text_input("User")
-        #password = st.text_input("Password", type="password")
+        password = st.text_input("Password", type="password")
 
         if st.button("Login", width="stretch"):
-            status, role = check_user(email, password="")
+            status, role = check_user(email, password=password)
             if status == "not_found":
                 st.error("User not found.")
             elif status == "no_password":
@@ -69,9 +69,6 @@ with col2:
                 st.switch_page("pages/app.py")
             elif status == "wrong_password":
                 st.error("Incorrect password.")
-
-        if st.session_state.get("userpass") == "success":
-            password = st.text_input("Password", type="password")
         
         if st.session_state.get("page") == "set_password":
             new_password = st.text_input("New Password", type="password")
