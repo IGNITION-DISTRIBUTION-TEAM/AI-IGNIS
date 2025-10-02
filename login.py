@@ -97,6 +97,7 @@ with col2:
 
 
 def go_to(page_name):
+    page_name = "home" 
     st.session_state.page = page_name
 
 # Example buttons for navigation
