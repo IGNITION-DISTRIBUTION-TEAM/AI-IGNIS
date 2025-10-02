@@ -33,6 +33,10 @@ st.markdown("""
 
 col1, col2, col3 = st.columns([2,2,2], vertical_alignment="center")
 
+def login():
+    st.session_state.page = "pages/app.py"
+    st.experimental_rerun()    
+
 with col2:
     with st.container(horizontal_alignment="center", vertical_alignment="center"):
         st.write("")
@@ -66,7 +70,8 @@ with col2:
                 st.session_state.userpass = "success"
                 st.session_state.email = email
                 st.session_state.role = role
-                st.switch_page("pages/app.py")
+                #st.switch_page("pages/app.py")
+                login()
             elif status == "wrong_password":
                 st.error("Incorrect password.")
 
@@ -94,24 +99,5 @@ with col2:
                         st.session_state.password_set_done = True
                         st.session_state.page = "login"
 
-
-
-def go_to(page_name):
-    page_name = "home" 
-    st.session_state.page = page_name
-
-# Example buttons for navigation
-if st.session_state.page == "home":
-    st.title("Home Page")
-    st.button("Go to Page 1", on_click=go_to, args=("pages/app.py",))
-    st.button("Go to Page 2", on_click=go_to, args=("page2",))
-
-elif st.session_state.page == "page1":
-    st.title("Page 1")
-    st.button("Go to Home", on_click=go_to, args=("home",))
-
-elif st.session_state.page == "page2":
-    st.title("Page 2")
-    st.button("Go to Home", on_click=go_to, args=("home",))
 
         
