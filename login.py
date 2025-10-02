@@ -80,23 +80,26 @@ with col2:
 
 
         if st.session_state.get("page") == "set_password":
-            new_password = st.text_input("New Password", type="password")
         
-            # Placeholder to control rendering
-            placeholder = st.empty()
+            # Initialize flag
+            if "password_set_done" not in st.session_state:
+                st.session_state.password_set_done = False
         
-            if "set_password_clicked" not in st.session_state:
-                st.session_state.set_password_clicked = False
+            if not st.session_state.password_set_done:
+                # Create placeholders for input + button
+                input_placeholder = st.empty()
+                button_placeholder = st.empty()
         
-            if not st.session_state.set_password_clicked:
-                # put the button inside the placeholder
-                if placeholder.button("Set Password"):
-                    st.session_state.set_password_clicked = True
+                new_password = input_placeholder.text_input("New Password", type="password")
+        
+                if button_placeholder.button("Set Password"):
                     status, role = check_user(st.session_state.email, new_password=new_password)
                     if status == "password_set":
+                        # Clear UI elements
+                        input_placeholder.empty()
+                        button_placeholder.empty()
+                        # Show success
                         st.success("Password set successfully. Please log in again.")
+                        st.session_state.password_set_done = True
                         st.session_state.page = "login"
-            else:
-                # clear the placeholder so button disappears
-                placeholder.empty()
-
+        
