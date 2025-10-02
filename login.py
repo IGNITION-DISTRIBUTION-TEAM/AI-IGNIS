@@ -83,7 +83,7 @@ with col2:
             new_password = st.text_input("New Password", type="password")
         
             # Create a state flag for the button
-            if "set_password_clicked" not in st.session_state:
+            if "login" not in st.session_state:
                 st.session_state.set_password_clicked = False
         
             if not st.session_state.set_password_clicked:
