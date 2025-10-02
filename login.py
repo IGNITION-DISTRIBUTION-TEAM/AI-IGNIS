@@ -32,12 +32,6 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 col1, col2, col3 = st.columns([2,2,2], vertical_alignment="center")
-
-query_params = st.experimental_get_query_params()
-page = query_params.get("page", ["login"])[0]
-
-def go_to_app():
-    st.experimental_get_query_params(page="app")
     
 with col2:
     with st.container(horizontal_alignment="center", vertical_alignment="center"):
@@ -72,8 +66,7 @@ with col2:
                 st.session_state.userpass = "success"
                 st.session_state.email = email
                 st.session_state.role = role
-                #st.switch_page("pages/app.py")
-                go_to_app()
+                st.switch_page("pages/app.py")
             elif status == "wrong_password":
                 st.error("Incorrect password.")
 
