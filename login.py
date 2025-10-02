@@ -54,55 +54,30 @@ with col2:
         #email = st.text_input("User")
         #password = st.text_input("Password", type="password")
 
-        # --- Hide Streamlit default menu/footer ---
-        hide_streamlit_style = """
-        <style>
-        #MainMenu {visibility: hidden;}
-        footer {visibility: hidden;}
-        </style>
-        """
-        st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+        if st.button("Login", width="stretch"):
+            status, role = check_user(email, password=password)
+            if status == "not_found":
+                st.error("User not found.")
+            elif status == "no_password":
+                st.session_state.email = email
+                st.session_state.page = "set_password"
+                st.info("First-time login. Please set a password below.")
+            elif status == "success":
+                st.session_state.userpass = "success"
+                st.session_state.email = email
+                st.session_state.role = role
+                st.session_state.page = "app"  # <-- Navigate using session_state
+            elif status == "wrong_password":
+                st.error("Incorrect password.")
         
-        # --- Initialize page ---
-        if "page" not in st.session_state:
-            st.session_state.page = "login"
-        
-        # --- Page navigation helper ---
-        def go_to(page_name):
-            st.session_state.page = page_name
-        
-        # --- Login page ---
-        if st.session_state.page == "login":
-            st.title("Login")
-            
-            email = st.text_input("Email")
-            password = st.text_input("Password", type="password")
-        
-            if st.button("Login", key="login_btn"):
-                status, role = check_user(email, password=password)
-                if status == "not_found":
-                    st.error("User not found.")
-                elif status == "no_password":
-                    st.session_state.email = email
-                    st.session_state.page = "set_password"
-                    st.info("First-time login. Please set a password below.")
-                elif status == "success":
-                    st.session_state.userpass = "success"
-                    st.session_state.email = email
-                    st.session_state.role = role
-                    go_to("app")  # Navigate to main app page
-                elif status == "wrong_password":
-                    st.error("Incorrect password.")
-        
-        # --- Set password page ---
-        elif st.session_state.page == "set_password":
-            st.title("Set Password")
+        if st.session_state.get("page") == "set_password":
         
             # Initialize flag
             if "password_set_done" not in st.session_state:
                 st.session_state.password_set_done = False
         
             if not st.session_state.password_set_done:
+                # Create placeholders for input + button
                 input_placeholder = st.empty()
                 button_placeholder = st.empty()
         
@@ -117,19 +92,6 @@ with col2:
                         # Show success
                         st.success("Password set successfully. Please log in again.")
                         st.session_state.password_set_done = True
-                        go_to("login")  # Go back to login page
-        
-        # --- Main app page ---
-        elif st.session_state.page == "app":
-            st.title("Main App")
-            st.write(f"Welcome, {st.session_state.email}!")
-            st.write(f"Your role: {st.session_state.role}")
-        
-            if st.button("Logout"):
-                st.session_state.page = "login"
-                st.session_state.userpass = None
-                st.session_state.email = None
-                st.session_state.role = None
-                st.experimental_rerun()
+                        st.session_state.page = "login"  # <-- Navigate back to login
 
         
