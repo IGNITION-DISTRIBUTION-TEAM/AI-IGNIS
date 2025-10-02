@@ -52,12 +52,12 @@ with col2:
         """, unsafe_allow_html=True)
 
         email = st.text_input("User")
-        password = st.text_input("Password", type="password")
+        #password = st.text_input("Password", type="password")
 
         if st.button("Login", width="stretch"):
             status, role = check_user(email, password=password)
             if status == "not_found":
-                st.error("Email not found.")
+                st.error("User not found.")
             elif status == "no_password":
                 st.session_state.email = email
                 st.session_state.page = "set_password"
