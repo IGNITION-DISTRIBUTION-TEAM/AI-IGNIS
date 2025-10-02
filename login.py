@@ -33,13 +33,14 @@ st.markdown("""
 
 col1, col2, col3 = st.columns([2,2,2], vertical_alignment="center")
 
-def login():
-    st.session_state.page = "app"
-    st.rerun()
-
-pg = st.navigation([
-    st.Page("pages/app.py")
-])
+def go_to_app():
+    # Change the URL to the target page
+    js = """
+    <script>
+        window.location.href = "/app";
+    </script>
+    """
+    st.markdown(js, unsafe_allow_html=True)
 
 with col2:
     with st.container(horizontal_alignment="center", vertical_alignment="center"):
@@ -75,7 +76,7 @@ with col2:
                 st.session_state.email = email
                 st.session_state.role = role
                 #st.switch_page("pages/app.py")
-                pg.run()
+                go_to_app()
             elif status == "wrong_password":
                 st.error("Incorrect password.")
 
