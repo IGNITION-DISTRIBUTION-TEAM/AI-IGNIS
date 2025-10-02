@@ -63,12 +63,16 @@ with col2:
                 st.session_state.page = "set_password"
                 st.info("First-time login. Please set a password below.")
             elif status == "success":
+                st.session_state.userpass = "success"
                 st.session_state.email = email
                 st.session_state.role = role
                 st.switch_page("pages/app.py")
             elif status == "wrong_password":
                 st.error("Incorrect password.")
 
+        if st.session_state.get("userpass") == "success":
+            password = st.text_input("Password", type="password")
+        
         if st.session_state.get("page") == "set_password":
             new_password = st.text_input("New Password", type="password")
             if st.button("Set Password"):
