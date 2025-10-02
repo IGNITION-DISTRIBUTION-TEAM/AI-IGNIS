@@ -70,10 +70,26 @@ with col2:
             elif status == "wrong_password":
                 st.error("Incorrect password.")
         
+        #if st.session_state.get("page") == "set_password":
+         #   new_password = st.text_input("New Password", type="password")
+          #  if st.button("Set Password"):
+          #      status, role = check_user(st.session_state.email, new_password=new_password)
+          #      if status == "password_set":
+          #          st.success("Password set successfully. Please log in again.")
+          #          st.session_state.page = "login"
+
+
         if st.session_state.get("page") == "set_password":
             new_password = st.text_input("New Password", type="password")
-            if st.button("Set Password"):
-                status, role = check_user(st.session_state.email, new_password=new_password)
-                if status == "password_set":
-                    st.success("Password set successfully. Please log in again.")
-                    st.session_state.page = "login"
+        
+            # Create a state flag for the button
+            if "set_password_clicked" not in st.session_state:
+                st.session_state.set_password_clicked = False
+        
+            if not st.session_state.set_password_clicked:
+                if st.button("Set Password"):
+                    st.session_state.set_password_clicked = True  # hide button on next rerun
+                    status, role = check_user(st.session_state.email, new_password=new_password)
+                    if status == "password_set":
+                        st.success("Password set successfully. Please log in again.")
+                        st.session_state.page = "login"
