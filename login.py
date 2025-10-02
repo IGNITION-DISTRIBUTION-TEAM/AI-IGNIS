@@ -34,14 +34,8 @@ st.markdown("""
 col1, col2, col3 = st.columns([2,2,2], vertical_alignment="center")
 
 def go_to_app():
-    # Change the URL to the target page
-    js = """
-    <script>
-        window.location.href = "pages/app.py";
-    </script>
-    """
-    st.markdown(js, unsafe_allow_html=True)
-
+    st.session_state.page = "pages/app.py"
+    
 with col2:
     with st.container(horizontal_alignment="center", vertical_alignment="center"):
         st.write("")
