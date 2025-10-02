@@ -33,8 +33,11 @@ st.markdown("""
 
 col1, col2, col3 = st.columns([2,2,2], vertical_alignment="center")
 
+query_params = st.experimental_get_query_params()
+page = query_params.get("page", ["login"])[0]
+
 def go_to_app():
-    st.session_state.page = "pages/app.py"
+    st.experimental_set_query_params(page="app")
     
 with col2:
     with st.container(horizontal_alignment="center", vertical_alignment="center"):
