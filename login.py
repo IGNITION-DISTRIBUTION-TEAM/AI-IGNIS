@@ -37,7 +37,7 @@ def go_to_app():
     # Change the URL to the target page
     js = """
     <script>
-        window.location.href = "/app";
+        window.location.href = "pages/app.py";
     </script>
     """
     st.markdown(js, unsafe_allow_html=True)
