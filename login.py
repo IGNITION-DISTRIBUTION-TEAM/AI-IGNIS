@@ -35,7 +35,6 @@ col1, col2, col3 = st.columns([2,2,2], vertical_alignment="center")
 
 def login():
     st.session_state.page = "pages/app.py"
-    st.experimental_rerun()    
 
 with col2:
     with st.container(horizontal_alignment="center", vertical_alignment="center"):
