@@ -34,7 +34,7 @@ st.markdown("""
 col1, col2, col3 = st.columns([2,2,2], vertical_alignment="center")
 
 def login():
-    st.session_state.page = "pages/app.py"
+    st.session_state.page = "app"
     st.rerun()
 
 with col2:
