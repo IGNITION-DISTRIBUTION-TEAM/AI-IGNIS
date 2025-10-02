@@ -82,14 +82,15 @@ with col2:
         if st.session_state.get("page") == "set_password":
             new_password = st.text_input("New Password", type="password")
         
-            # Create a state flag for the button
-            if "login" not in st.session_state:
-                st.session_state.set_password_clicked = False
-        
-            if not st.session_state.set_password_clicked:
+            # show button only if not clicked
+            if "set_password_clicked" not in st.session_state:
                 if st.button("Set Password"):
-                    st.session_state.set_password_clicked = True  # hide button on next rerun
+                    st.session_state.set_password_clicked = True  # mark as clicked
                     status, role = check_user(st.session_state.email, new_password=new_password)
                     if status == "password_set":
                         st.success("Password set successfully. Please log in again.")
                         st.session_state.page = "login"
+        
+            # once clicked, remove the button from UI
+            if st.session_state.get("set_password_clicked"):
+                st.empty()  # clears the button placeholder
