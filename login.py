@@ -94,4 +94,23 @@ with col2:
                         st.session_state.password_set_done = True
                         st.session_state.page = "login"
 
+
+
+def go_to(page_name):
+    st.session_state.page = page_name
+
+# Example buttons for navigation
+if st.session_state.page == "home":
+    st.title("Home Page")
+    st.button("Go to Page 1", on_click=go_to, args=("pages/app.py",))
+    st.button("Go to Page 2", on_click=go_to, args=("page2",))
+
+elif st.session_state.page == "page1":
+    st.title("Page 1")
+    st.button("Go to Home", on_click=go_to, args=("home",))
+
+elif st.session_state.page == "page2":
+    st.title("Page 2")
+    st.button("Go to Home", on_click=go_to, args=("home",))
+
         
