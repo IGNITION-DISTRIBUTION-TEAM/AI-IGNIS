@@ -66,10 +66,10 @@ with col2:
                 st.session_state.userpass = "success"
                 st.session_state.email = email
                 st.session_state.role = role
-                st.session_state.page = "app"  # <-- Navigate using session_state
+                st.switch_page("pages/app.py")
             elif status == "wrong_password":
                 st.error("Incorrect password.")
-        
+
         if st.session_state.get("page") == "set_password":
         
             # Initialize flag
@@ -92,6 +92,6 @@ with col2:
                         # Show success
                         st.success("Password set successfully. Please log in again.")
                         st.session_state.password_set_done = True
-                        st.session_state.page = "login"  # <-- Navigate back to login
+                        st.session_state.page = "login"
 
         
