@@ -37,6 +37,10 @@ def login():
     st.session_state.page = "app"
     st.rerun()
 
+pg = st.navigation([
+    st.Page("pages/app.py")
+])
+
 with col2:
     with st.container(horizontal_alignment="center", vertical_alignment="center"):
         st.write("")
@@ -71,7 +75,7 @@ with col2:
                 st.session_state.email = email
                 st.session_state.role = role
                 #st.switch_page("pages/app.py")
-                login()
+                pg.run()
             elif status == "wrong_password":
                 st.error("Incorrect password.")
 
