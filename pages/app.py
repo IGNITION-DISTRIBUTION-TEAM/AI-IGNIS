@@ -29,6 +29,8 @@ from db import get_JWT
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
+st.set_page_config(initial_sidebar_state="collapsed")
+
 st.markdown(
     """
 <style>
@@ -39,18 +41,6 @@ st.markdown(
 """,
     unsafe_allow_html=True,
 )
-
-hide_streamlit_style = """
-<style>
-/* Hide the top-right menu */
-#MainMenu {visibility: hidden;}
-/* Hide the footer */
-footer {visibility: hidden;}
-/* Optional: hide the sidebar toggle button */
-[data-testid="collapsedControl"] {display: none;}
-</style>
-"""
-st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 HOST = "pm58521.east-us-2.azure.snowflakecomputing.com"
 DATABASE = "SNOWFLAKE_INTELLIGENCE"
