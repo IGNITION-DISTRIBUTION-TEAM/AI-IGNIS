@@ -40,6 +40,8 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
+st.set_page_config(initial_sidebar_state="collapsed")
+
 hide_streamlit_style = """
 <style>
 /* Hide the top-right menu */
