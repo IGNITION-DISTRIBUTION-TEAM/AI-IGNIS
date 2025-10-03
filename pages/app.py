@@ -177,6 +177,10 @@ def render_message(msg: Message):
                         content_item.actual_instance.to_json()
                     )
 
+
+name = st.write(st.session_state['name'])
+surname = st.write(st.session_state['surname'])
+
 st.markdown("""
 <h2 style="
     text-align: center;
@@ -185,7 +189,7 @@ st.markdown("""
     -webkit-text-fill-color: transparent;
     font-weight: bold;
 ">
-Welcome
+Welcome """+name+"""
 </h2>
 """, unsafe_allow_html=True)
 
