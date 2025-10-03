@@ -79,7 +79,9 @@ with col2:
                 new_password = input_placeholder.text_input("New Password", type="password")
         
                 if button_placeholder.button("Set Password"):
-                    status, role = check_user(st.session_state.email, new_password=new_password)
+                    status, role, first_name, last_name  = check_user(st.session_state.email, new_password=new_password)
+                    st.session_state['name'] = first_name
+                    st.session_state['surname'] = last_name 
                     if status == "password_set":
                         # Clear UI elements
                         input_placeholder.empty()
