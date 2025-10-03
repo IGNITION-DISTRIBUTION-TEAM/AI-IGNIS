@@ -7,7 +7,6 @@ pydantic
 urllib3
 pydantic
 typing-extensions
-jwt
 PyJWT
 snowflake-connector-python
 st-pages
