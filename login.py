@@ -15,7 +15,7 @@ def check_user(email, password=None, new_password=None):
         else:
             return "no_password", None
     if password and password == db_password:
-        return "success", db_role, first_name, last_name
+        return "success", db_role
     else:
         return "wrong_password", None
 
