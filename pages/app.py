@@ -27,6 +27,10 @@ from cryptography.hazmat.backends import default_backend
 import urllib3
 from db import get_JWT
 
+if "name" not in st.session_state or not st.session_state["name"]:
+    st.switch_page("login.py")
+    st.rerun()
+
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 st.set_page_config(initial_sidebar_state="collapsed")
