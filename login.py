@@ -7,15 +7,15 @@ def check_user(email, password=None, new_password=None):
     row = get_user_by_email(email)
     if not row:
         return "not_found", None
-    db_email, db_password, db_role = row
+    db_email, db_password, db_role, first_name, last_name = row
     if not db_password:
         if new_password:
             set_user_password(email, new_password)
-            return "password_set", db_role
+            return "password_set", db_role, first_name, last_name
         else:
             return "no_password", None
     if password and password == db_password:
-        return "success", db_role
+        return "success", db_role, first_name, last_name
     else:
         return "wrong_password", None
 
@@ -39,24 +39,14 @@ with col2:
 
         st.image("logo.jpg", width=120)
 
-        #st.markdown("""
-        #<h2 style="
-        #    text-align: center;
-        #    background: linear-gradient(to right, #007BFF, #00FFFF);
-        #    -webkit-background-clip: text;
-        #    -webkit-text-fill-color: transparent;
-        #    font-weight: bold;
-        #">
-        #Login to IGNIS
-        #</h2>
-        #""", unsafe_allow_html=True)
+        status, role, first_name, last_name = check_user(email, password=password)
         
         st.write("For first time login, enter your employee ID under user.")
         email = st.text_input("User")
         password = st.text_input("Password", type="password")
 
         if st.button("Login", width="stretch"):
-            status, role = check_user(email, password=password)
+            #status, role = check_user(email, password=password)
             if status == "not_found":
                 st.error("User not found.")
             elif status == "no_password":
