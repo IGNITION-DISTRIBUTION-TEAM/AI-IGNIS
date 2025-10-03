@@ -11,7 +11,7 @@ def check_user(email, password=None, new_password=None):
     if not db_password:
         if new_password:
             set_user_password(email, new_password)
-            return "password_set", db_role, first_name, last_name
+            return "password_set", db_role
         else:
             return "no_password", None
     if password and password == db_password:
