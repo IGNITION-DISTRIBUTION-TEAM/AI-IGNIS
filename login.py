@@ -46,7 +46,7 @@ with col2:
         password = st.text_input("Password", type="password")
 
         if st.button("Login", width="stretch"):
-            #status, role = check_user(email, password=password)
+            status, role = check_user(email, password=password)
             if status == "not_found":
                 st.error("User not found.")
             elif status == "no_password":
