@@ -29,6 +29,17 @@ from db import get_JWT
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
+st.markdown(
+    """
+<style>
+    [data-testid="collapsedControl"] {
+        display: none
+    }
+</style>
+""",
+    unsafe_allow_html=True,
+)
+
 hide_streamlit_style = """
 <style>
 /* Hide the top-right menu */
