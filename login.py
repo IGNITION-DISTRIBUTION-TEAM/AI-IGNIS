@@ -49,6 +49,8 @@ with col2:
 
         if st.button("Login", width="stretch"):
             status, role, first_name, last_name = check_user(email, password=password)
+            st.session_state['name'] = first_name
+            st.session_state['surname'] = last_name 
             if status == "not_found":
                 st.error("User not found.")
             elif status == "no_password":
