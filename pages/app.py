@@ -180,7 +180,7 @@ def render_message(msg: Message):
 col1, col2, col3 = st.columns([2,2,2], vertical_alignment="center")
     
 with col2:
-    with st.container(horizontal_alignment="top", vertical_alignment="center"):
+    with st.container(horizontal_alignment="center", vertical_alignment="top"):
 
         name = st.session_state['name']
         surname = st.session_state['surname']
@@ -205,7 +205,7 @@ with col2:
             for message in st.session_state.messages:
                 render_message(message)
 
-        with st.container(horizontal_alignment="bottom", vertical_alignment="center"):
+        with st.container(horizontal_alignment="center", vertical_alignment="bottom"):
         
             if user_input := st.chat_input("How can I help you?"):
                 process_new_message(prompt=user_input)
