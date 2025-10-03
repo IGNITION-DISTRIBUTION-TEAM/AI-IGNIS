@@ -176,6 +176,18 @@ def render_message(msg: Message):
                         content_item.actual_instance.to_json()
                     )
 
+st.markdown("""
+<h2 style="
+    text-align: center;
+    background: linear-gradient(to right, #007BFF, #00FFFF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+">
+Welcome to IGNIS
+</h2>
+""", unsafe_allow_html=True)
+
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
