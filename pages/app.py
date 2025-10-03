@@ -185,7 +185,7 @@ st.markdown("""
     -webkit-text-fill-color: transparent;
     font-weight: bold;
 ">
-Welcome to IGNIS
+Welcome, Abel
 </h2>
 """, unsafe_allow_html=True)
 
