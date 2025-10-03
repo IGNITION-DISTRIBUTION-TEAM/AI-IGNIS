@@ -29,18 +29,18 @@ from db import get_JWT
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
-st.markdown(
-    """
-<style>
-    [data-testid="collapsedControl"] {
-        display: none
-    }
-</style>
-""",
-    unsafe_allow_html=True,
-)
+st.markdown("""
 
-st.set_page_config(initial_sidebar_state="collapsed")
+<style>
+
+
+ .css-1iyw2u1 {
+        display: none;
+    }
+
+</style>
+
+""", unsafe_allow_html=True)
 
 hide_streamlit_style = """
 <style>
