@@ -207,5 +207,5 @@ with col2:
             for message in st.session_state.messages:
                 savemes = render_message(message)
         
-            if user_input := st.chat_input("How can I help you?"):
-                process_new_message(prompt=user_input)
+        if user_input := st.chat_input("How can I help you?"):
+            process_new_message(prompt=user_input)
