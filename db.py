@@ -58,7 +58,7 @@ def get_user_by_email(email: str):
     cur = conn.cursor()
     try:
         cur.execute(
-            "SELECT USER, PASSWORD, ROLE FROM SNOWFLAKE_INTELLIGENCE.STREAMLITAI.TM_EMPLOYEE_CREDENTIALS WHERE USER=%s",
+            "SELECT USER, PASSWORD, ROLE, FIRST_NAME, LAST_NAME FROM SNOWFLAKE_INTELLIGENCE.STREAMLITAI.TM_EMPLOYEE_CREDENTIALS WHERE USER=%s",
             (email,)
         )
         return cur.fetchone()
