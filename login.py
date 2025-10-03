@@ -39,17 +39,17 @@ with col2:
 
         st.image("logo.jpg", width=120)
 
-        st.markdown("""
-        <h2 style="
-            text-align: center;
-            background: linear-gradient(to right, #007BFF, #00FFFF);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: bold;
-        ">
-        Login to IGNIS
-        </h2>
-        """, unsafe_allow_html=True)
+        #st.markdown("""
+        #<h2 style="
+        #    text-align: center;
+        #    background: linear-gradient(to right, #007BFF, #00FFFF);
+        #    -webkit-background-clip: text;
+        #    -webkit-text-fill-color: transparent;
+        #    font-weight: bold;
+        #">
+        #Login to IGNIS
+        #</h2>
+        #""", unsafe_allow_html=True)
         
         st.write("For first time login, enter your employee ID under user.")
         email = st.text_input("User")
