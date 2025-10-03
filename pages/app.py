@@ -178,6 +178,8 @@ def render_message(msg: Message):
                     )
                     
 col1, col2, col3 = st.columns([2,3,2], vertical_alignment="center")
+col4, col5, col6 = st.columns([2,3,2], vertical_alignment="center")
+col7, col8, col9 = st.columns([2,3,2], vertical_alignment="center")
     
 with col2:
     with st.container(horizontal_alignment="center", vertical_alignment="top"):
@@ -196,12 +198,16 @@ with col2:
         Welcome {name} {surname}
         </h2>
         """, unsafe_allow_html=True)
-        
+
+with col5:
+    with st.container(horizontal_alignment="center", vertical_alignment="center"):
         if "messages" not in st.session_state:
             st.session_state.messages = []
         
         for message in st.session_state.messages:
             render_message(message)
-    
+
+with col8:
+    with st.container(horizontal_alignment="center", vertical_alignment="bottom"):
         if user_input := st.chat_input("How can I help you?"):
             process_new_message(prompt=user_input)
