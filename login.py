@@ -50,7 +50,8 @@ with col2:
         Login to IGNIS
         </h2>
         """, unsafe_allow_html=True)
-
+        
+        st.write("Please enter you employee ID if you are a new user.")
         email = st.text_input("User")
         password = st.text_input("Password", type="password")
 
