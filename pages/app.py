@@ -178,10 +178,10 @@ def render_message(msg: Message):
                     )
 
 
-name = st.write(st.session_state['name'])
-surname = st.write(st.session_state['surname'])
+name = st.session_state['name']
+surname = st.session_state['surname']
 
-st.markdown("""
+st.markdown(f"""
 <h2 style="
     text-align: center;
     background: linear-gradient(to right, #007BFF, #00FFFF);
@@ -189,7 +189,7 @@ st.markdown("""
     -webkit-text-fill-color: transparent;
     font-weight: bold;
 ">
-Welcome """+name+"""
+Welcome {name}
 </h2>
 """, unsafe_allow_html=True)
 
