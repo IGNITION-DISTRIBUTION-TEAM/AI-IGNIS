@@ -6,18 +6,18 @@ import snowflake.connector
 def check_user(email, password=None, new_password=None):
     row = get_user_by_email(email)
     if not row:
-        return "not_found", None
+        return "not_found", None, None, None
     db_email, db_password, db_role, first_name, last_name = row
     if not db_password:
         if new_password:
             set_user_password(email, new_password)
-            return "password_set", db_role,null, null
+            return "password_set", db_role, None, None
         else:
-            return "no_password", None,null, null
+            return "no_password", None, None, None
     if password and password == db_password:
-        return "success", db_role,first_name, last_name
+        return "success", db_role, first_name, last_name
     else:
-        return "wrong_password", None,null, null
+        return "wrong_password", None, None, None
 
 st.set_page_config(page_title="Login", layout="wide")
 
