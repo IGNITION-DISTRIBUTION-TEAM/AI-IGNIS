@@ -189,7 +189,7 @@ st.markdown(f"""
     -webkit-text-fill-color: transparent;
     font-weight: bold;
 ">
-Welcome {name}
+Welcome {name} {surname}
 </h2>
 """, unsafe_allow_html=True)
 
