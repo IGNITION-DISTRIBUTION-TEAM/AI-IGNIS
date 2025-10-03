@@ -177,35 +177,28 @@ def render_message(msg: Message):
                         content_item.actual_instance.to_json()
                     )
                     
-col1, col2, col3 = st.columns([2,3,2], vertical_alignment="center")
-col4, col5, col6 = st.columns([2,3,2], vertical_alignment="center")
-col7, col8, col9 = st.columns([2,3,2], vertical_alignment="center")
 
 
-    
-with col2:
-    with st.container(horizontal_alignment="center", vertical_alignment="top"):
+name = st.session_state['name']
+surname = st.session_state['surname']
 
-        name = st.session_state['name']
-        surname = st.session_state['surname']
-        
-        st.markdown(f"""
-        <h2 style="
-            text-align: center;
-            background: linear-gradient(to right, #007BFF, #00FFFF);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: bold;
-        ">
-        Welcome {name} {surname}
-        </h2>
-        """, unsafe_allow_html=True)
-  
-        if "messages" not in st.session_state:
-            st.session_state.messages = []
-        
-            for message in st.session_state.messages:
-                savemes = render_message(message)
-        
-        if user_input := st.chat_input("How can I help you?"):
-            process_new_message(prompt=user_input)
+st.markdown(f"""
+<h2 style="
+    text-align: center;
+    background: linear-gradient(to right, #007BFF, #00FFFF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+">
+Welcome {name} {surname}
+</h2>
+""", unsafe_allow_html=True)
+
+if "messages" not in st.session_state:
+    st.session_state.messages = []
+
+for message in st.session_state.messages:
+    savemes = render_message(message)
+
+if user_input := st.chat_input("How can I help you?"):
+    process_new_message(prompt=user_input)
