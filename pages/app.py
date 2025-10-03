@@ -177,7 +177,7 @@ def render_message(msg: Message):
                         content_item.actual_instance.to_json()
                     )
                     
-col1, col2, col3 = st.columns([2,5,2], vertical_alignment="center")
+col1, col2, col3 = st.columns([2,3,2], vertical_alignment="center")
     
 with col2:
     with st.container(horizontal_alignment="center", vertical_alignment="top"):
