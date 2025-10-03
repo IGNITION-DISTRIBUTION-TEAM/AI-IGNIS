@@ -13,11 +13,11 @@ def check_user(email, password=None, new_password=None):
             set_user_password(email, new_password)
             return "password_set", db_role,null, null
         else:
-            return "no_password", None
+            return "no_password", None,null, null
     if password and password == db_password:
         return "success", db_role,first_name, last_name
     else:
-        return "wrong_password", None
+        return "wrong_password", None,null, null
 
 st.set_page_config(page_title="Login", layout="wide")
 
