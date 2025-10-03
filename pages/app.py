@@ -197,11 +197,11 @@ with col2:
         </h2>
         """, unsafe_allow_html=True)
         
-            if "messages" not in st.session_state:
-                st.session_state.messages = []
-            
-            for message in st.session_state.messages:
-                render_message(message)
+        if "messages" not in st.session_state:
+            st.session_state.messages = []
         
-            if user_input := st.chat_input("How can I help you?"):
-                process_new_message(prompt=user_input)
+        for message in st.session_state.messages:
+            render_message(message)
+    
+        if user_input := st.chat_input("How can I help you?"):
+            process_new_message(prompt=user_input)
