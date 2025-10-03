@@ -199,11 +199,11 @@ Welcome {name} {surname}
 with col2:
     with st.container(horizontal_alignment="center", vertical_alignment="top"):
   
-    if "messages" not in st.session_state:
-        st.session_state.messages = []
+        if "messages" not in st.session_state:
+            st.session_state.messages = []
+        
+        for message in st.session_state.messages:
+            savemes = render_message(message)
     
-    for message in st.session_state.messages:
-        savemes = render_message(message)
-
-    if user_input := st.chat_input("How can I help you?"):
-        process_new_message(prompt=user_input)
+        if user_input := st.chat_input("How can I help you?"):
+            process_new_message(prompt=user_input)
