@@ -149,7 +149,7 @@ def process_new_message(prompt: str) -> None:
     render_message(message)
     st.session_state.messages.append(message)
 
-    with st.chat_message("assistant"):
+    with st.chat_message("assistant",avatar=None, width="stretch"):
         with st.spinner("Sending request..."):
             response = agent_run()
         st.markdown(
