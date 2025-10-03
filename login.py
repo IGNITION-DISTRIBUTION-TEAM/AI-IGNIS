@@ -51,7 +51,7 @@ with col2:
         </h2>
         """, unsafe_allow_html=True)
         
-        st.write("For time login, enter your employee ID under user.")
+        st.write("For first time login, enter your employee ID under user.")
         email = st.text_input("User")
         password = st.text_input("Password", type="password")
 
